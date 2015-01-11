@@ -1,5 +1,5 @@
 {
-    "name": "dearon/slim-mustache",
+    "name": "sebcbi1/slim-mustache",
     "type": "library",
     "description": "Mustache View Parser package for the Slim Framework",
     "keywords": ["templating", "extensions", "slimphp", "mustache"],

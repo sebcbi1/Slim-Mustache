@@ -93,10 +93,13 @@ class Mustache extends \Slim\View
                 \Mustache_Autoloader::register();
             }
 
-            $parserOptions = array(
-                'loader' => new \Mustache_Loader_FilesystemLoader($this->getTemplatesDirectory()),
-            );
-
+            $parserOptions = array();
+            
+            // Check if the template directory exists, otherwise Mustache will throw a exception
+            if (is_dir($this->getTemplatesDirectory())) {
+                $parserOptions['loader'] = new \Mustache_Loader_FilesystemLoader($this->getTemplatesDirectory());
+            }
+            
             // Check if the partials directory exists, otherwise Mustache will throw a exception
             if (is_dir($this->getTemplatesDirectory().'/partials')) {
                 $parserOptions['partials_loader'] = new \Mustache_Loader_FilesystemLoader($this->getTemplatesDirectory().'/partials');
